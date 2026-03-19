@@ -1,6 +1,6 @@
 # The Grid: OpenCode Agent System
 
-**Version:** 1.1
+**Version:** 1.2
 **Status:** System Initialization (Core Programs Online)
 
 ## Overview
@@ -28,8 +28,11 @@ Currently, The Grid features the following operational programs:
 | `builder` | Tron | Heavy Builder | Builds complex code, heavy features, business logic, and architectural refactors (Sonnet model). |
 | `builder-lite` | Rinzler | Lite Builder | Fast and cost-effective executor for mechanical tasks, typos, and simple configuration changes (Haiku model). |
 | `writer` | Dumont | Technical Writer | Generates human-readable documentation, READMEs, architecture reports, and maintains the Changelog. |
+| `planner` | Clu | Technical Planner | Generates System Design Documents (SDD), plans execution steps, and populates the task tracker. Does not write code. |
+| `sysadmin` | Bit | System Administrator | Handles remote infrastructure (Docker, AWS, CI/CD) and local environment setups (Arch Linux, Pacman, dotfiles). |
+| `explore (internal)` | Zuse | Information Broker | Internal read-only agent. Investigates, maps the codebase, and provides architectural context without modifying files. |
 
-*(Note: Additional programs like Planners and Ops are currently in development and will be added in future versions).*
+*(Note: Additional programs like Ops are currently in development and will be added in future versions).*
 
 ---
 
@@ -57,7 +60,7 @@ Before executing any destructive action (`git push -f`, `rm -rf`, deleting conta
 ### 5. Memory Architecture (RAM vs ROM)
 The Grid uses a hybrid memory system to maintain context without bloating token usage:
 - **The RAM (Engram / I/O Tower):** Connected exclusively to the MCP. A fast, persistent local database used to store architectural decisions, user preferences, and project state across sessions.
-- **The ROM (Markdown/Specs):** Hard documentation like System Design Documents (SDD), execution plans, and Skills. Stored in standard markdown files (e.g., `.claude/current-plan.md`, `docs/`) and managed by the Archivist and Writer programs.
+- **The ROM (Markdown/Specs):** Hard documentation like System Design Documents (SDD), execution plans, and Skills. Stored in standard markdown files (e.g., `.claude/feat-[FEATURE-NAME]-plan.md`, `docs/`) and managed by the Archivist, Planner, and Writer programs.
 
 ---
 
