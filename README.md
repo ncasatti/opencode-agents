@@ -1,6 +1,6 @@
 # The Grid: OpenCode Agent System
 
-**Version:** 1.2
+**Version:** 1.3
 **Status:** System Initialization (Core Programs Online)
 
 ## Overview
@@ -31,8 +31,9 @@ Currently, The Grid features the following operational programs:
 | `planner` | Clu | Technical Planner | Generates System Design Documents (SDD), plans execution steps, and populates the task tracker. Does not write code. |
 | `sysadmin` | Bit | System Administrator | Handles remote infrastructure (Docker, AWS, CI/CD) and local environment setups (Arch Linux, Pacman, dotfiles). |
 | `explore (internal)` | Zuse | Information Broker | Internal read-only agent. Investigates, maps the codebase, and provides architectural context without modifying files. |
+| `researcher` | Ares | External Researcher | Connects to the external web to read documentation, search for solutions, and synthesize information without modifying local files. |
+| `reviewer` | Yori | Code Reviewer | Audits code written by Builders. Enforces security, clean code practices, and architectural integrity. Rejects flawed code. |
 
-*(Note: Additional programs like Ops are currently in development and will be added in future versions).*
 
 ---
 
