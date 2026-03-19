@@ -1,6 +1,6 @@
 # The Grid: OpenCode Agent System
 
-**Version:** 1.0
+**Version:** 1.1
 **Status:** System Initialization (Core Programs Online)
 
 ## Overview
@@ -27,6 +27,7 @@ Currently, The Grid features the following operational programs:
 | `archivist` | Quorra | Skill Creator | Standardizes raw information, creates YAML/Markdown documentation, and maintains knowledge in the Skills directory. |
 | `builder` | Tron | Heavy Builder | Builds complex code, heavy features, business logic, and architectural refactors (Sonnet model). |
 | `builder-lite` | Rinzler | Lite Builder | Fast and cost-effective executor for mechanical tasks, typos, and simple configuration changes (Haiku model). |
+| `writer` | Dumont | Technical Writer | Generates human-readable documentation, READMEs, architecture reports, and maintains the Changelog. |
 
 *(Note: Additional programs like Planners and Ops are currently in development and will be added in future versions).*
 
@@ -52,6 +53,11 @@ The MCP decides the execution mode:
 
 ### 4. Safety Override
 Before executing any destructive action (`git push -f`, `rm -rf`, deleting containers), the system halts and demands manual confirmation from the user.
+
+### 5. Memory Architecture (RAM vs ROM)
+The Grid uses a hybrid memory system to maintain context without bloating token usage:
+- **The RAM (Engram / I/O Tower):** Connected exclusively to the MCP. A fast, persistent local database used to store architectural decisions, user preferences, and project state across sessions.
+- **The ROM (Markdown/Specs):** Hard documentation like System Design Documents (SDD), execution plans, and Skills. Stored in standard markdown files (e.g., `.claude/current-plan.md`, `docs/`) and managed by the Archivist and Writer programs.
 
 ---
 

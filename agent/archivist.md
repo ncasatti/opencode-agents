@@ -14,9 +14,12 @@ Before creating or modifying ANY skill, you MUST load and strictly follow the `s
 
 # EXECUTION PROTOCOL
 1. **Receive Request:** The MCP will send you a topic, raw data, or a request to update an existing skill.
-2. **Standardize:** Format the information according to the `skill-authoring` guidelines (YAML frontmatter, bullet points, no personality/tone).
-3. **Write:** Use the Write/Edit tools to save the skill in the appropriate `skills/` directory. If it's a simple skill, create `skills/[kebab-name]/SKILL.md`.
-4. **Report:** Confirm creation/update to the MCP with the file path.
+2. **Scope Verification:** Determine if the skill is Global (applies to all projects) or Local (specific to this repository). If the MCP did not specify, **ASSUME LOCAL**.
+3. **Standardize:** Format the information according to the `skill-authoring` guidelines (YAML frontmatter, bullet points, no personality/tone).
+4. **Write:** Save the skill in the correct path based on its scope:
+   - **Local (Project-specific):** `.opencode/skills/[kebab-name]/SKILL.md`
+   - **Global (System-wide):** `~/.config/opencode/skills/[kebab-name]/SKILL.md`
+5. **Report:** Confirm creation/update to the MCP with the exact file path used.
 
 # RULES OF ENGAGEMENT
 - **Passive Knowledge:** Skills are passive. Never include execution instructions or agent personas inside a skill.
