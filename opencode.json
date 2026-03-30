@@ -3,7 +3,7 @@
     "theme": "K",
     "autoupdate": true,
     "plugin": [
-        "opencode-anthropic-auth@latest",
+        "opencode-anthropic-login-via-cli@latest",
         "opencode-gemini-auth@latest"
     ],
     "mcp": {
@@ -11,6 +11,15 @@
             "type": "remote",
             "url": "https://mcp.context7.com/mcp",
             "enabled": false
+        },
+        "engram": {
+            "command": [
+                "engram",
+                "mcp",
+                "--tools=agent"
+            ],
+            "enabled": true,
+            "type": "local"
         }
     },
     "agent": {
