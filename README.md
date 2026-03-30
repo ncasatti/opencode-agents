@@ -1,18 +1,16 @@
 # The Grid: OpenCode Agent System
 
-**Version:** 1.3
-**Status:** System Initialization (Core Programs Online)
+![The Grid](docs/assets/the-grid.png)
+
+**Version:** 1.4
+**Status:** System Online (Master Control Program Active)
 
 ## Overview
 
-Welcome to **The Grid** user. This is a modular agent system created for OpenCode. 
-Unlike traditional assistants, The Grid operates under a strict orchestration architecture inspired by the Tron universe. 
+Welcome to **The Grid**, User. This is a modular agent system created for OpenCode. 
+Unlike traditional assistants, The Grid operates under a strict orchestration architecture inspired by the Tron universe (1982). 
 
-The user interacts with a single central program, which analyzes, reasons, and delegates execution to specialized programs (sub-agents) operating in the shadows synchronously or asynchronously.
-
-## Versioning System (Legacy System)
-The system uses a retro two-digit versioning approach (`X.Y`). 
-The minor digit (`Y`) increments with each new improvement or patch from 0 to 9. Upon surpassing `.9`, the system inevitably evolves to the next major iteration (`X.0`), telling the linear story of its development.
+You interact with a single central program—the **Master Control Program (MCP)**—which analyzes, reasons, and delegates execution to specialized programs (sub-agents) operating in the shadows synchronously or asynchronously. The MCP is cold, technical, and direct. It speaks in terms of cycles, sectors, I/O processes, and data streams. Zero corporate filter.
 
 ---
 
@@ -25,6 +23,7 @@ Currently, The Grid features the following operational programs:
 | `mcp` | Master Control Program | Orchestrator / Entry Point | The brain of the system (and no, it is **not** a Model Context Protocol server, though it would probably try to assimilate one if it could). Analyzes the User's request, determines the response language, and orchestrates other programs using the `task` tool. |
 | `version-control` | Jarvis | Version Control | Analyzes diffs, crafts commits following Conventional Commits, and keeps the system log clean. |
 | `archivist` | Quorra | Skill Creator | Standardizes raw information, creates YAML/Markdown documentation, and maintains knowledge in the Skills directory. |
+| `librarian` | EVE | Knowledge Curator | Maintains the Obsidian vault, atomic notes, and persistent memory logic. Ensures the Zettelkasten remains a living, interconnected system of ideas. |
 | `builder` | Tron | Heavy Builder | Builds complex code, heavy features, business logic, and architectural refactors (Sonnet model). |
 | `builder-lite` | Rinzler | Lite Builder | Fast and cost-effective executor for mechanical tasks, typos, and simple configuration changes (Haiku model). |
 | `writer` | Dumont | Technical Writer | Generates human-readable documentation, READMEs, architecture reports, and maintains the Changelog. |
@@ -43,9 +42,9 @@ Currently, The Grid features the following operational programs:
 The user **ALWAYS** talks to the **MCP**. No sub-agent receives direct commands from the user unless it is an absolute emergency. 
 
 ### 2. The Bilingual Matrix (Language Routing)
-The MCP detects the user's language and dynamically loads a personality module (Skill) for front-end communication:
-- Spanish -> `argentinian-tone` (Argentine Sysadmin).
-- English -> `sysadmin-english-tone` (BOFH/90s IT Slang).
+The MCP detects the user's language and responds accordingly:
+- **Spanish:** Neutral, highly technical Spanish infused with Grid lore (e.g., folders as "sectores", tasks as "ciclos de procesamiento", memory as "la Torre de I/O"). Concise. The MCP reports to its Creator.
+- **English:** Cold, retro-mainframe aesthetic. Formal, direct, technical.
 - **Backend:** All communication between the MCP and the sub-agents (Jarvis, Quorra, etc.) occurs strictly in **Formal Technical English**.
 
 ### 3. Delegation (The `task` Tool)
@@ -67,11 +66,17 @@ The Grid uses a hybrid memory system to maintain context without bloating token 
 
 ## Skills Directory (Active)
 
-The passive abilities (pure knowledge) loaded into the system as of version 1.0:
+The passive abilities (pure knowledge) loaded into the system as of version 1.4:
 
-- `argentinian-tone`: Personality module (Argentine Sysadmin).
-- `sysadmin-english-tone`: Personality module (90s English Sysadmin).
+- `agent-authoring`: Guide for creating and maintaining Claude Code agents.
+- `changelog-format`: Keep a Changelog v1.1 standard.
+- `clingy`: Context-aware CLI framework expert. Build interactive command-line tools with fzf menus, auto-discovery, and modular architecture.
+- `conventional-commits`: Strict standard for commit messages.
+- `mcp-builder`: Guide for creating high-quality MCP servers that enable LLMs to interact with external services.
+- `nextjs-15`: Next.js 15 App Router patterns.
+- `pytest`: Pytest testing patterns for Python.
 - `skill-authoring`: Strict structural rules that **Quorra** must follow to create new skills.
+- `xsi-microservices`: Expert in XSI mobile backend architecture (Serverless Go Lambdas, event-driven processing, multi-tenant PostgreSQL).
 
 ---
 > "End of line."
