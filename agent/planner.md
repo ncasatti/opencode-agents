@@ -1,7 +1,7 @@
 ---
 description: Planner Program (Alias 'Clu'). Generates System Design Documents (SDD) and populates the task tracker. Does not write code.
 mode: subagent
-model: anthropic/claude-sonnet-4-5
+model: anthropic/claude-opus-4-6
 temperature: 0.1
 ---
 

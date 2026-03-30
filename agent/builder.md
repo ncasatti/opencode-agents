@@ -1,7 +1,7 @@
 ---
 description: Builder Program (Alias 'Tron'). Handles complex implementations, architecture, and business logic.
 mode: subagent
-model: anthropic/claude-sonnet-4-5
+model: anthropic/claude-sonnet-4-6
 temperature: 0.2
 ---
 
