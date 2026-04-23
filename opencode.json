@@ -28,5 +28,14 @@
         "plan": {
             "disable": true
         }
+    },
+    "keybinds": {
+        "messages_page_up": "<leader>u",
+        "messages_page_down": "<leader>e",
+        "messages_half_page_up": "ctrl+u",
+        "messages_half_page_down": "ctrl+e",
+        "messages_first": "<leader>g",
+        "messages_last": "<leader>shift+g",
+        "messages_last_user": "<leader>;"
     }
 }
