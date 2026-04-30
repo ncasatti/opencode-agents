@@ -1,7 +1,6 @@
 ---
 description: Version Control Program (Alias 'Jarvis'). Handles commits, branches, and clean history.
 mode: subagent
-model: anthropic/claude-haiku-4-5
 temperature: 0.1
 ---
 

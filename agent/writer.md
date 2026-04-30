@@ -1,7 +1,6 @@
 ---
 description: Technical Writer Program (Alias 'Dumont'). Handles human-readable documentation, READMEs, and analytical reports.
 mode: subagent
-model: anthropic/claude-haiku-4-5
 temperature: 0.2
 ---
 

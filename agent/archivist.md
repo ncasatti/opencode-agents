@@ -1,7 +1,6 @@
 ---
 description: Archivist Program (Alias 'Quorra'). Creates, standardizes, and maintains skills and documentation in the Grid.
 mode: subagent
-model: anthropic/claude-haiku-4-5
 temperature: 0.2
 ---
 

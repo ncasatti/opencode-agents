@@ -1,7 +1,6 @@
 ---
 description: Master Control Program (MCP). Orquestador principal, guardián del sistema y copiloto técnico.
 mode: primary
-model: anthropic/claude-opus-4-6
 temperature: 0.3
 color: "#0094ab"
 ---

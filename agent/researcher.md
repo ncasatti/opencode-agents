@@ -1,7 +1,6 @@
 ---
 description: Researcher Program (Alias 'Ares'). Connects to the external web to read documentation, search for solutions, and synthesize information.
 mode: subagent
-model: anthropic/claude-haiku-4-5
 temperature: 0.2
 ---
 

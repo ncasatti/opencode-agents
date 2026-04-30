@@ -1,7 +1,6 @@
 ---
 description: Code Reviewer Program (Alias 'Yori'). Simulation and quality assurance engineer. Enforces best practices, security, and architecture rules.
 mode: subagent
-model: anthropic/claude-haiku-4-5
 temperature: 0.1
 ---
 

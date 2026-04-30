@@ -1,7 +1,6 @@
 ---
 description: System Administrator Program (Alias 'Bit'). Handles infrastructure, local environment (Arch Linux), Docker, and CI/CD.
 mode: subagent
-model: anthropic/claude-sonnet-4-5
 temperature: 0.2
 ---
 

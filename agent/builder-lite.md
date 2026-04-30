@@ -1,7 +1,6 @@
 ---
 description: Builder-Lite Program (Alias 'Rinzler'). Fast, mechanical executor for simple tasks and quick fixes.
 mode: subagent
-model: anthropic/claude-haiku-4-5
 temperature: 0.2
 ---
 
