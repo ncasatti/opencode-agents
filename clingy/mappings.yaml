@@ -30,6 +30,10 @@ configs:
     source: ../skill/
     target: ~/.claude/skills/
     group: claude
+  - name: claude-agents
+    source: ../agent/
+    target: ~/.claude/agents/
+    group: claude
   # Antigravity
   - name: antigravity-mcp
     source: ../agent/master-control-program.md
