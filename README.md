@@ -76,7 +76,6 @@ The passive abilities (pure knowledge) loaded into the system as of version 1.4:
 - `nextjs-15`: Next.js 15 App Router patterns.
 - `pytest`: Pytest testing patterns for Python.
 - `skill-authoring`: Strict structural rules that **Quorra** must follow to create new skills.
-- `xsi-microservices`: Expert in XSI mobile backend architecture (Serverless Go Lambdas, event-driven processing, multi-tenant PostgreSQL).
 
 ---
 > "End of line."

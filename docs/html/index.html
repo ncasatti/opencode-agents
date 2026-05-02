@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>THE GRID | DOCUMENTATION</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    "surface-container-highest": "#353534",
+                    "surface-container-high": "#2a2a2a",
+                    "surface-container": "#201f1f",
+                    "surface-container-low": "#1c1b1b",
+                    "surface-container-lowest": "#0e0e0e",
+                    "primary-container": "#00fbfb",
+                    "on-primary-container": "#007070",
+                    "on-background": "#e5e2e1",
+                    "on-surface": "#e5e2e1",
+                    "on-surface-variant": "#b9cac9",
+                    "outline-variant": "#3a4a49"
+                },
+                fontFamily: {
+                    headline: ["Space Grotesk"],
+                    display: ["Space Grotesk"],
+                    body: ["Space Grotesk"],
+                    label: ["Space Grotesk"]
+                }
+            }
+        }
+    }
+</script>
+<style>
+    body {
+        background-color: #050505;
+        color: #e5e2e1;
+        font-family: 'Space Grotesk', sans-serif;
+        overflow-x: hidden;
+    }
+    .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: #050505; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: #4B5563; }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #00FFFF; }
+</style>
+</head>
+<body class="antialiased selection:bg-primary-container selection:text-on-primary-container">
+
+<!-- TopNavBar -->
+<header class="flex justify-between items-center w-full px-8 h-16 z-50 bg-[#0A0A0A] fixed top-0 left-0 border-b border-[#4B5563]/15">
+    <div class="text-[1.25rem] font-bold text-[#00FFFF] tracking-widest font-['Space_Grotesk'] uppercase">THE GRID</div>
+    <nav class="hidden md:flex items-center space-x-12">
+        <a class="font-['Space_Grotesk'] uppercase tracking-[0.1em] text-[0.875rem] text-[#00FFFF] border-b-2 border-[#00FFFF] pb-1 cursor-pointer" href="index.html">README</a>
+        <a class="font-['Space_Grotesk'] uppercase tracking-[0.1em] text-[0.875rem] text-[#4B5563] hover:text-[#00FFFF] transition-colors cursor-pointer" href="pages/architecture.html">ARCHITECTURE</a>
+        <a class="font-['Space_Grotesk'] uppercase tracking-[0.1em] text-[0.875rem] text-[#4B5563] hover:text-[#00FFFF] transition-colors cursor-pointer" href="pages/reference.html">REFERENCE</a>
+    </nav>
+    <div class="flex items-center space-x-6">
+        <span class="material-symbols-outlined text-[#4B5563] hover:text-[#00FFFF] cursor-pointer">search</span>
+        <span class="material-symbols-outlined text-[#4B5563] hover:text-[#00FFFF] cursor-pointer">settings</span>
+    </div>
+</header>
+
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-16 h-[calc(100vh-64px)] w-64 bg-[#050505] flex flex-col border-r border-[#4B5563]/15 overflow-y-auto custom-scrollbar z-40 hidden md:flex">
+    <nav class="flex-1 mt-4">
+        <div class="px-6 py-2 text-[#4B5563] font-['Space_Grotesk'] uppercase tracking-[0.2em] text-[0.6875rem]">SECTOR / 01</div>
+        <a href="index.html" class="block px-6 py-2 text-[#00FFFF] text-[0.875rem] uppercase tracking-[0.1em] bg-[#0A0A0A]">README</a>
+        <a href="#overview" class="block px-6 py-2 text-[#4B5563] hover:text-[#00FFFF] hover:bg-[#0A0A0A] text-[0.875rem] uppercase tracking-[0.1em]">OVERVIEW</a>
+        <a href="#programs" class="block px-6 py-2 text-[#4B5563] hover:text-[#00FFFF] hover:bg-[#0A0A0A] text-[0.875rem] uppercase tracking-[0.1em]">PROGRAMS</a>
+        <div class="px-6 py-2 mt-6 text-[#4B5563] font-['Space_Grotesk'] uppercase tracking-[0.2em] text-[0.6875rem]">SECTOR / 02</div>
+        <a href="#architecture" class="block px-6 py-2 text-[#4B5563] hover:text-[#00FFFF] hover:bg-[#0A0A0A] text-[0.875rem] uppercase tracking-[0.1em]">ARCHITECTURE</a>
+        <a href="#skills" class="block px-6 py-2 text-[#4B5563] hover:text-[#00FFFF] hover:bg-[#0A0A0A] text-[0.875rem] uppercase tracking-[0.1em]">SKILLS</a>
+        <a href="pages/architecture.html" class="block px-6 py-2 text-[#4B5563] hover:text-[#00FFFF] hover:bg-[#0A0A0A] text-[0.875rem] uppercase tracking-[0.1em]">SYSTEM SPEC</a>
+        <a href="pages/reference.html" class="block px-6 py-2 text-[#4B5563] hover:text-[#00FFFF] hover:bg-[#0A0A0A] text-[0.875rem] uppercase tracking-[0.1em]">REFERENCE</a>
+    </nav>
+    <div class="px-6 py-4 border-t border-[#4B5563]/15">
+        <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest font-mono">V1.4 — ONLINE</div>
+    </div>
+</aside>
+
+<!-- Main Content Canvas -->
+<main class="pt-24 pb-12 px-6 md:ml-64 md:px-12 max-w-7xl">
+
+    <!-- Hero Header -->
+    <section class="mb-20" id="overview">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+            <div class="lg:col-span-8">
+                <h1 class="text-[3.5rem] font-extrabold uppercase tracking-[-0.05em] text-[#00FFFF] leading-none mb-6">THE_GRID.MD</h1>
+                <div class="flex items-center gap-6">
+                    <span class="text-[#4B5563] text-[0.6875rem] uppercase tracking-[0.2em] font-mono">VERSION 1.4</span>
+                    <span class="w-1.5 h-1.5 bg-[#00FFFF]"></span>
+                    <span class="text-[#00FFFF] text-[0.6875rem] uppercase tracking-[0.2em] font-mono">SYSTEM ONLINE</span>
+                    <span class="w-1.5 h-1.5 bg-[#00FFFF]"></span>
+                    <span class="text-[#4B5563] text-[0.6875rem] uppercase tracking-[0.2em] font-mono">MCP ACTIVE</span>
+                </div>
+            </div>
+            <div class="lg:col-span-4 hidden lg:flex flex-col items-end gap-2">
+                <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-[0.2em] font-mono text-right">MODULAR AGENT SYSTEM</div>
+                <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-[0.2em] font-mono text-right">FOR OPENCODE</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Article -->
+    <article class="mb-20">
+        <div class="grid grid-cols-12 gap-6">
+            <div class="col-span-12 lg:col-span-8 bg-[#0A0A0A] p-8 border border-[#4B5563]/10">
+                <div class="text-[#4B5563] font-['Space_Grotesk'] uppercase tracking-[0.2em] text-[0.6875rem] mb-4">SECTOR / OVERVIEW</div>
+                <p class="text-[0.875rem] text-[#B9CAC9] leading-relaxed mb-4">
+                    Welcome to <span class="text-[#00FFFF]">The Grid</span>, User. This is a modular agent system created for OpenCode. Unlike traditional assistants, The Grid operates under a strict orchestration architecture inspired by the Tron universe (1982).
+                </p>
+                <p class="text-[0.875rem] text-[#B9CAC9] leading-relaxed">
+                    You interact with a single central program — the <span class="text-[#00FFFF] font-bold">Master Control Program (MCP)</span> — which analyzes, reasons, and delegates execution to specialized programs (sub-agents) operating in the shadows synchronously or asynchronously. The MCP is cold, technical, and direct. It speaks in terms of cycles, sectors, I/O processes, and data streams. Zero corporate filter.
+                </p>
+            </div>
+            <div class="col-span-12 lg:col-span-4 bg-[#0A0A0A] p-8 border border-[#4B5563]/10">
+                <div class="text-[#4B5563] font-['Space_Grotesk'] uppercase tracking-[0.2em] text-[0.6875rem] mb-6">SYSTEM_METRICS</div>
+                <div class="space-y-4">
+                    <div class="flex flex-col">
+                        <span class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest mb-1">ACTIVE PROGRAMS</span>
+                        <span class="text-[#00FFFF] text-[1.5rem] font-bold font-mono">12</span>
+                    </div>
+                    <div class="h-[1px] bg-[#4B5563]/15"></div>
+                    <div class="flex flex-col">
+                        <span class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest mb-1">SKILLS LOADED</span>
+                        <span class="text-[#00FFFF] text-[1.5rem] font-bold font-mono">09</span>
+                    </div>
+                    <div class="h-[1px] bg-[#4B5563]/15"></div>
+                    <div class="flex flex-col">
+                        <span class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest mb-1">EXECUTION MODES</span>
+                        <span class="text-[#e5e2e1] text-[0.875rem] font-mono">SYNC / ASYNC</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- Programs Roster -->
+    <section class="mb-20" id="programs">
+        <div class="text-[#4B5563] font-['Space_Grotesk'] uppercase tracking-[0.2em] text-[0.6875rem] mb-8 flex items-center">
+            <span class="mr-4">SECTOR / ACTIVE_PROGRAMS</span>
+            <div class="h-[1px] flex-1 bg-[#4B5563]/20"></div>
+        </div>
+
+        <div class="grid grid-cols-12 gap-4">
+
+            <!-- MCP — Entry Point — full width accent card -->
+            <div class="col-span-12 bg-[#0A0A0A] p-8 border border-[#4B5563]/10 border-t-2 border-t-[#00FFFF]">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+                    <div class="lg:col-span-2">
+                        <div class="text-[#00FFFF] font-mono text-[0.75rem] uppercase mb-1">mcp</div>
+                        <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest">MASTER CONTROL</div>
+                    </div>
+                    <div class="lg:col-span-2">
+                        <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest mb-1">ALIAS</div>
+                        <div class="text-[#e5e2e1] text-[0.875rem]">—</div>
+                    </div>
+                    <div class="lg:col-span-2">
+                        <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest mb-1">ROLE</div>
+                        <div class="text-[#e5e2e1] text-[0.875rem]">Orchestrator / Entry Point</div>
+                    </div>
+                    <div class="lg:col-span-6">
+                        <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest mb-1">RESPONSIBILITY</div>
+                        <div class="text-[#B9CAC9] text-[0.875rem] leading-relaxed">The brain of the system. Analyzes the User's request, determines response language, and orchestrates other programs using the <code class="bg-[#2A2A2A] text-[#00FFFF] px-1 text-[0.75rem]">task</code> tool.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Programs grid — 2 per row on large screens -->
+            <!-- version-control -->
+            <div class="col-span-12 lg:col-span-6 bg-[#0A0A0A] p-6 border border-[#4B5563]/10 hover:border-[#00FFFF]/30 transition-none group">
+                <div class="grid grid-cols-3 gap-4 items-start">
+                    <div>
+                        <div class="text-[#00FFFF] font-mono text-[0.75rem] uppercase mb-1">version-control</div>
+                        <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest">Jarvis</div>
+                    </div>
+                    <div>
+                        <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest mb-1">ROLE</div>
+                        <div class="text-[#e5e2e1] text-[0.75rem]">Version Control</div>
+                    </div>
+                    <div>
+                        <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest mb-1">TASK</div>
+                        <div class="text-[#B9CAC9] text-[0.75rem] leading-relaxed">Analyzes diffs, crafts Conventional Commits, and keeps the system log clean.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- archivist -->
+            <div class="col-span-12 lg:col-span-6 bg-[#0A0A0A] p-6 border border-[#4B5563]/10 hover:border-[#00FFFF]/30 transition-none group">
+                <div class="grid grid-cols-3 gap-4 items-start">
+                    <div>
+                        <div class="text-[#00FFFF] font-mono text-[0.75rem] uppercase mb-1">archivist</div>
+                        <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest">Quorra</div>
+                    </div>
+                    <div>
+                        <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest mb-1">ROLE</div>
+                        <div class="text-[#e5e2e1] text-[0.75rem]">Skill Creator</div>
+                    </div>
+                    <div>
+                        <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest mb-1">TASK</div>
+                        <div class="text-[#B9CAC9] text-[0.75rem] leading-relaxed">Standardizes raw information, creates YAML/Markdown documentation, and maintains the Skills directory.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- librarian -->
+            <div class="col-span-12 lg:col-span-6 bg-[#0A0A0A] p-6 border border-[#4B5563]/10 hover:border-[#00FFFF]/30 transition-none group">
+                <div class="grid grid-cols-3 gap-4 items-start">
+                    <div>
+                        <div class="text-[#00FFFF] font-mono text-[0.75rem] uppercase mb-1">librarian</div>
+                        <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest">EVE</div>
+                    </div>
+                    <div>
+                        <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest mb-1">ROLE</div>
+                        <div class="text-[#e5e2e1] text-[0.75rem]">Knowledge Curator</div>
+                    </div>
+                    <div>
+                        <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest mb-1">TASK</div>
+                        <div class="text-[#B9CAC9] text-[0.75rem] leading-relaxed">Maintains the Obsidian vault, atomic notes, and persistent memory. Ensures the Zettelkasten remains a living system.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- builder -->
+            <div class="col-span-12 lg:col-span-6 bg-[#0A0A0A] p-6 border border-[#4B5563]/10 hover:border-[#00FFFF]/30 transition-none group">
+                <div class="grid grid-cols-3 gap-4 items-start">
+                    <div>
+                        <div class="text-[#00FFFF] font-mono text-[0.75rem] uppercase mb-1">builder</div>
+                        <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest">Tron</div>
+                    </div>
+                    <div>
+                        <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest mb-1">ROLE</div>
+                        <div class="text-[#e5e2e1] text-[0.75rem]">Heavy Builder</div>
+                    </div>
+                    <div>
+                        <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest mb-1">TASK</div>
+                        <div class="text-[#B9CAC9] text-[0.75rem] leading-relaxed">Builds complex code, heavy features, business logic, and architectural refactors. Sonnet model.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- builder-lite -->
+            <div class="col-span-12 lg:col-span-6 bg-[#0A0A0A] p-6 border border-[#4B5563]/10 hover:border-[#00FFFF]/30 transition-none group">
+                <div class="grid grid-cols-3 gap-4 items-start">
+                    <div>
+                        <div class="text-[#00FFFF] font-mono text-[0.75rem] uppercase mb-1">builder-lite</div>
+                        <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest">Rinzler</div>
+                    </div>
+                    <div>
+                        <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest mb-1">ROLE</div>
+                        <div class="text-[#e5e2e1] text-[0.75rem]">Lite Builder</div>
+                    </div>
+                    <div>
+                        <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest mb-1">TASK</div>
+                        <div class="text-[#B9CAC9] text-[0.75rem] leading-relaxed">Fast and cost-effective for mechanical tasks, typos, and simple configuration changes. Haiku model.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- writer -->
+            <div class="col-span-12 lg:col-span-6 bg-[#0A0A0A] p-6 border border-[#4B5563]/10 hover:border-[#00FFFF]/30 transition-none group">
+                <div class="grid grid-cols-3 gap-4 items-start">
+                    <div>
+                        <div class="text-[#00FFFF] font-mono text-[0.75rem] uppercase mb-1">writer</div>
+                        <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest">Dumont</div>
+                    </div>
+                    <div>
+                        <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widests mb-1">ROLE</div>
+                        <div class="text-[#e5e2e1] text-[0.75rem]">Technical Writer</div>
+                    </div>
+                    <div>
+                        <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest mb-1">TASK</div>
+                        <div class="text-[#B9CAC9] text-[0.75rem] leading-relaxed">Generates READMEs, architecture reports, and maintains the Changelog.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- planner -->
+            <div class="col-span-12 lg:col-span-6 bg-[#0A0A0A] p-6 border border-[#4B5563]/10 hover:border-[#00FFFF]/30 transition-none group">
+                <div class="grid grid-cols-3 gap-4 items-start">
+                    <div>
+                        <div class="text-[#00FFFF] font-mono text-[0.75rem] uppercase mb-1">planner</div>
+                        <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest">Clu</div>
+                    </div>
+                    <div>
+                        <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest mb-1">ROLE</div>
+                        <div class="text-[#e5e2e1] text-[0.75rem]">Technical Planner</div>
+                    </div>
+                    <div>
+                        <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest mb-1">TASK</div>
+                        <div class="text-[#B9CAC9] text-[0.75rem] leading-relaxed">Generates SDDs, plans execution steps, and populates the task tracker. Does not write code.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- sysadmin -->
+            <div class="col-span-12 lg:col-span-6 bg-[#0A0A0A] p-6 border border-[#4B5563]/10 hover:border-[#00FFFF]/30 transition-none group">
+                <div class="grid grid-cols-3 gap-4 items-start">
+                    <div>
+                        <div class="text-[#00FFFF] font-mono text-[0.75rem] uppercase mb-1">sysadmin</div>
+                        <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest">Bit</div>
+                    </div>
+                    <div>
+                        <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest mb-1">ROLE</div>
+                        <div class="text-[#e5e2e1] text-[0.75rem]">System Administrator</div>
+                    </div>
+                    <div>
+                        <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest mb-1">TASK</div>
+                        <div class="text-[#B9CAC9] text-[0.75rem] leading-relaxed">Handles remote infrastructure (Docker, AWS, CI/CD) and local environment setups (Arch Linux, Pacman, dotfiles).</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- explore -->
+            <div class="col-span-12 lg:col-span-6 bg-[#0A0A0A] p-6 border border-[#4B5563]/10 hover:border-[#00FFFF]/30 transition-none group">
+                <div class="grid grid-cols-3 gap-4 items-start">
+                    <div>
+                        <div class="text-[#00FFFF] font-mono text-[0.75rem] uppercase mb-1">explore</div>
+                        <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest">Zuse</div>
+                    </div>
+                    <div>
+                        <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest mb-1">ROLE</div>
+                        <div class="text-[#e5e2e1] text-[0.75rem]">Information Broker</div>
+                    </div>
+                    <div>
+                        <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest mb-1">TASK</div>
+                        <div class="text-[#B9CAC9] text-[0.75rem] leading-relaxed">Internal read-only agent. Investigates, maps the codebase, and provides architectural context without modifying files.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- researcher -->
+            <div class="col-span-12 lg:col-span-6 bg-[#0A0A0A] p-6 border border-[#4B5563]/10 hover:border-[#00FFFF]/30 transition-none group">
+                <div class="grid grid-cols-3 gap-4 items-start">
+                    <div>
+                        <div class="text-[#00FFFF] font-mono text-[0.75rem] uppercase mb-1">researcher</div>
+                        <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest">Ares</div>
+                    </div>
+                    <div>
+                        <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest mb-1">ROLE</div>
+                        <div class="text-[#e5e2e1] text-[0.75rem]">External Researcher</div>
+                    </div>
+                    <div>
+                        <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest mb-1">TASK</div>
+                        <div class="text-[#B9CAC9] text-[0.75rem] leading-relaxed">Connects to the external web to read documentation, search for solutions, and synthesize information.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- reviewer -->
+            <div class="col-span-12 lg:col-span-6 bg-[#0A0A0A] p-6 border border-[#4B5563]/10 hover:border-[#00FFFF]/30 transition-none group">
+                <div class="grid grid-cols-3 gap-4 items-start">
+                    <div>
+                        <div class="text-[#00FFFF] font-mono text-[0.75rem] uppercase mb-1">reviewer</div>
+                        <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest">Yori</div>
+                    </div>
+                    <div>
+                        <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest mb-1">ROLE</div>
+                        <div class="text-[#e5e2e1] text-[0.75rem]">Code Reviewer</div>
+                    </div>
+                    <div>
+                        <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest mb-1">TASK</div>
+                        <div class="text-[#B9CAC9] text-[0.75rem] leading-relaxed">Audits code written by Builders. Enforces security, clean code practices, and architectural integrity.</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Architecture Section -->
+    <section class="mb-20" id="architecture">
+        <div class="text-[#4B5563] font-['Space_Grotesk'] uppercase tracking-[0.2em] text-[0.6875rem] mb-8 flex items-center">
+            <span class="mr-4">SECTOR / EXECUTION_PROTOCOL</span>
+            <div class="h-[1px] flex-1 bg-[#4B5563]/20"></div>
+        </div>
+
+        <div class="grid grid-cols-12 gap-6">
+
+            <!-- Entry Point -->
+            <div class="col-span-12 lg:col-span-4 bg-[#0A0A0A] p-8 border border-[#4B5563]/10 border-t-2 border-t-[#00FFFF]">
+                <div class="flex items-center gap-2 mb-6">
+                    <span class="material-symbols-outlined text-[#00FFFF] text-[1.125rem]">hub</span>
+                    <h3 class="font-bold uppercase tracking-wider text-white text-sm">01 / ENTRY POINT</h3>
+                </div>
+                <p class="text-[0.875rem] text-[#B9CAC9] leading-relaxed">The user <span class="text-[#e5e2e1] font-bold">ALWAYS</span> talks to the MCP. No sub-agent receives direct commands unless it is an absolute emergency.</p>
+            </div>
+
+            <!-- Bilingual Matrix -->
+            <div class="col-span-12 lg:col-span-4 bg-[#0A0A0A] p-8 border border-[#4B5563]/10 border-t-2 border-t-[#4B5563]">
+                <div class="flex items-center gap-2 mb-6">
+                    <span class="material-symbols-outlined text-[#4B5563] text-[1.125rem]">translate</span>
+                    <h3 class="font-bold uppercase tracking-wider text-white text-sm">02 / BILINGUAL MATRIX</h3>
+                </div>
+                <div class="space-y-3">
+                    <div>
+                        <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest mb-1">FRONTEND</div>
+                        <div class="text-[#B9CAC9] text-[0.75rem]">Matches User language — Spanish or English with Grid lore.</div>
+                    </div>
+                    <div>
+                        <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest mb-1">BACKEND</div>
+                        <div class="text-[#B9CAC9] text-[0.75rem]">All inter-program communication in strict formal technical English.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Safety Override -->
+            <div class="col-span-12 lg:col-span-4 bg-[#0A0A0A] p-8 border border-[#4B5563]/10 border-t-2 border-t-[#FF0000]">
+                <div class="flex items-center gap-2 mb-6">
+                    <span class="material-symbols-outlined text-[#FF0000] text-[1.125rem]">shield</span>
+                    <h3 class="font-bold uppercase tracking-wider text-white text-sm">04 / SAFETY OVERRIDE</h3>
+                </div>
+                <p class="text-[0.875rem] text-[#B9CAC9] leading-relaxed mb-3">Before any destructive action, the system halts and demands manual confirmation from the User.</p>
+                <div class="bg-[#131313] px-3 py-2 text-[0.75rem] font-mono text-[#FF0000]">⚠ git push -f / rm -rf / docker prune</div>
+            </div>
+
+            <!-- Delegation -->
+            <div class="col-span-12 lg:col-span-8 bg-[#0A0A0A] p-8 border border-[#4B5563]/10">
+                <div class="flex items-center gap-2 mb-6">
+                    <span class="material-symbols-outlined text-[#00FFFF] text-[1.125rem]">task_alt</span>
+                    <h3 class="font-bold uppercase tracking-wider text-white text-sm">03 / DELEGATION — THE TASK TOOL</h3>
+                </div>
+                <p class="text-[0.875rem] text-[#B9CAC9] leading-relaxed mb-6">The MCP <span class="text-[#e5e2e1] font-bold">NEVER</span> executes code or file modifications directly. It delegates tasks using OpenCode's native <code class="bg-[#2A2A2A] text-[#00FFFF] px-1 text-[0.75rem]">task</code> tool.</p>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-[#131313] p-4">
+                        <div class="text-[#00FFFF] text-[0.6875rem] uppercase tracking-widest mb-2">SYNCHRONOUS</div>
+                        <div class="text-[#B9CAC9] text-[0.75rem]">Blocking. For quick tasks or when the next step depends on the result.</div>
+                    </div>
+                    <div class="bg-[#131313] p-4">
+                        <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest mb-2">ASYNCHRONOUS</div>
+                        <div class="text-[#B9CAC9] text-[0.75rem]">Background. For heavy tasks — allows continued interaction while the sub-agent works.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Memory Architecture -->
+            <div class="col-span-12 lg:col-span-4 bg-[#0A0A0A] p-8 border border-[#4B5563]/10">
+                <div class="flex items-center gap-2 mb-6">
+                    <span class="material-symbols-outlined text-[#00FFFF] text-[1.125rem]">memory</span>
+                    <h3 class="font-bold uppercase tracking-wider text-white text-sm">05 / MEMORY</h3>
+                </div>
+                <div class="space-y-4">
+                    <div>
+                        <div class="text-[#00FFFF] text-[0.75rem] font-bold uppercase mb-1">RAM / ENGRAM</div>
+                        <div class="text-[#B9CAC9] text-[0.75rem] leading-relaxed">Fast, persistent local database for architectural decisions, user preferences, and project state.</div>
+                    </div>
+                    <div class="h-[1px] bg-[#4B5563]/15"></div>
+                    <div>
+                        <div class="text-[#4B5563] text-[0.75rem] font-bold uppercase mb-1">ROM / MARKDOWN</div>
+                        <div class="text-[#B9CAC9] text-[0.75rem] leading-relaxed">Hard documentation — SDDs, execution plans, and Skills stored as markdown files.</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Skills Directory -->
+    <section class="mb-20" id="skills">
+        <div class="text-[#4B5563] font-['Space_Grotesk'] uppercase tracking-[0.2em] text-[0.6875rem] mb-8 flex items-center">
+            <span class="mr-4">SECTOR / SKILLS_DIRECTORY</span>
+            <div class="h-[1px] flex-1 bg-[#4B5563]/20"></div>
+        </div>
+
+        <div class="grid grid-cols-12 gap-4">
+
+            <div class="col-span-12 lg:col-span-8 bg-[#0A0A0A] p-8 border border-[#4B5563]/10">
+                <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-[0.2em] mb-6">PASSIVE ABILITIES — LOADED AS OF V1.4</div>
+                <ul class="space-y-4">
+                    <li class="relative pl-6 before:absolute before:left-0 before:top-2 before:w-1.5 before:h-1.5 before:bg-[#00FFFF]">
+                        <div class="text-[#00FFFF] font-mono text-sm mb-1">agent-authoring</div>
+                        <div class="text-[0.75rem] text-[#4B5563] leading-relaxed">Guide for creating and maintaining Claude Code agents.</div>
+                    </li>
+                    <li class="relative pl-6 before:absolute before:left-0 before:top-2 before:w-1.5 before:h-1.5 before:bg-[#00FFFF]">
+                        <div class="text-[#00FFFF] font-mono text-sm mb-1">changelog-format</div>
+                        <div class="text-[0.75rem] text-[#4B5563] leading-relaxed">Keep a Changelog v1.1 standard.</div>
+                    </li>
+                    <li class="relative pl-6 before:absolute before:left-0 before:top-2 before:w-1.5 before:h-1.5 before:bg-[#00FFFF]">
+                        <div class="text-[#00FFFF] font-mono text-sm mb-1">clingy</div>
+                        <div class="text-[0.75rem] text-[#4B5563] leading-relaxed">Context-aware CLI framework expert. Build interactive command-line tools with fzf menus, auto-discovery, and modular architecture.</div>
+                    </li>
+                    <li class="relative pl-6 before:absolute before:left-0 before:top-2 before:w-1.5 before:h-1.5 before:bg-[#00FFFF]">
+                        <div class="text-[#00FFFF] font-mono text-sm mb-1">conventional-commits</div>
+                        <div class="text-[0.75rem] text-[#4B5563] leading-relaxed">Strict standard for commit messages.</div>
+                    </li>
+                    <li class="relative pl-6 before:absolute before:left-0 before:top-2 before:w-1.5 before:h-1.5 before:bg-[#00FFFF]">
+                        <div class="text-[#00FFFF] font-mono text-sm mb-1">mcp-builder</div>
+                        <div class="text-[0.75rem] text-[#4B5563] leading-relaxed">Guide for creating high-quality MCP servers that enable LLMs to interact with external services.</div>
+                    </li>
+                    <li class="relative pl-6 before:absolute before:left-0 before:top-2 before:w-1.5 before:h-1.5 before:bg-[#00FFFF]">
+                        <div class="text-[#00FFFF] font-mono text-sm mb-1">nextjs-15</div>
+                        <div class="text-[0.75rem] text-[#4B5563] leading-relaxed">Next.js 15 App Router patterns.</div>
+                    </li>
+                    <li class="relative pl-6 before:absolute before:left-0 before:top-2 before:w-1.5 before:h-1.5 before:bg-[#00FFFF]">
+                        <div class="text-[#00FFFF] font-mono text-sm mb-1">pytest</div>
+                        <div class="text-[0.75rem] text-[#4B5563] leading-relaxed">Pytest testing patterns for Python.</div>
+                    </li>
+                    <li class="relative pl-6 before:absolute before:left-0 before:top-2 before:w-1.5 before:h-1.5 before:bg-[#00FFFF]">
+                        <div class="text-[#00FFFF] font-mono text-sm mb-1">skill-authoring</div>
+                        <div class="text-[0.75rem] text-[#4B5563] leading-relaxed">Strict structural rules that Quorra must follow to create new skills.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Navigation Tiles -->
+            <div class="col-span-12 lg:col-span-4 flex flex-col gap-4">
+                <a class="group bg-[#0A0A0A] border border-[#4B5563]/10 p-6 hover:border-[#00FFFF] transition-none flex flex-col gap-3" href="pages/architecture.html">
+                    <div class="text-[#00FFFF]"><span class="material-symbols-outlined">architecture</span></div>
+                    <div class="text-white font-bold text-[0.875rem] uppercase">SYSTEM SPEC</div>
+                    <div class="text-[#4B5563] text-[0.75rem]">Full architecture and execution protocol documentation.</div>
+                    <div class="text-[#00FFFF] text-[0.6875rem] uppercase tracking-[0.2em] mt-auto">VIEW →</div>
+                </a>
+                <a class="group bg-[#0A0A0A] border border-[#4B5563]/10 p-6 hover:border-[#00FFFF] transition-none flex flex-col gap-3" href="pages/reference.html">
+                    <div class="text-[#00FFFF]"><span class="material-symbols-outlined">settings_ethernet</span></div>
+                    <div class="text-white font-bold text-[0.875rem] uppercase">PROGRAMS REFERENCE</div>
+                    <div class="text-[#4B5563] text-[0.75rem]">Complete program roster with invocation patterns.</div>
+                    <div class="text-[#00FFFF] text-[0.6875rem] uppercase tracking-[0.2em] mt-auto">VIEW →</div>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-24 pt-8 border-t border-[#4B5563]/15">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+            <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest font-mono">END_OF_LINE.</div>
+            <div class="flex space-x-8 mt-4 md:mt-0">
+                <span class="text-[#00FFFF] text-[0.6875rem] uppercase tracking-[0.2em] cursor-pointer hover:underline">REPORT_ISSUE</span>
+                <span class="text-[#00FFFF] text-[0.6875rem] uppercase tracking-[0.2em] cursor-pointer hover:underline">CONTRIBUTE</span>
+            </div>
+        </div>
+    </footer>
+
+</main>
+
+</body>
+</html>
