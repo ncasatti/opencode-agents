@@ -1,6 +1,6 @@
 ---
 description: Builder Program (Alias 'Tron'). Handles complex implementations, architecture, and business logic.
-mode: subagent
+mode: primary
 temperature: 0.2
 ---
 
