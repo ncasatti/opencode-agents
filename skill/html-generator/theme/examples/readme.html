@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CLINGY | DOCUMENTATION</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    "surface-container-highest": "#353534",
+                    "surface-container-high": "#2a2a2a",
+                    "surface-container": "#201f1f",
+                    "surface-container-low": "#1c1b1b",
+                    "surface-container-lowest": "#0e0e0e",
+                    "primary-container": "#00fbfb",
+                    "on-primary-container": "#007070",
+                    "on-background": "#e5e2e1",
+                    "on-surface": "#e5e2e1",
+                    "on-surface-variant": "#b9cac9",
+                    "outline-variant": "#3a4a49"
+                },
+                fontFamily: {
+                    headline: ["Space Grotesk"],
+                    display: ["Space Grotesk"],
+                    body: ["Space Grotesk"],
+                    label: ["Space Grotesk"]
+                }
+            }
+        }
+    }
+</script>
+<style>
+    body {
+        background-color: #050505;
+        color: #e5e2e1;
+        font-family: 'Space Grotesk', sans-serif;
+        overflow-x: hidden;
+    }
+    .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: #050505; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: #4B5563; }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #00FFFF; }
+</style>
+</head>
+<body class="antialiased selection:bg-primary-container selection:text-on-primary-container">
+
+<!-- TopNavBar -->
+<header class="flex justify-between items-center w-full px-8 h-16 z-50 bg-[#0A0A0A] fixed top-0 left-0 border-b border-[#4B5563]/15">
+    <div class="text-[1.25rem] font-bold text-[#00FFFF] tracking-widest font-['Space_Grotesk'] uppercase">DOCUMENTATION</div>
+    <nav class="hidden md:flex items-center space-x-12">
+        <a class="font-['Space_Grotesk'] uppercase tracking-[0.1em] text-[0.875rem] text-[#00FFFF] border-b-2 border-[#00FFFF] pb-1 cursor-pointer" href="index.html">README</a>
+        <a class="font-['Space_Grotesk'] uppercase tracking-[0.1em] text-[0.875rem] text-[#4B5563] hover:text-[#00FFFF] transition-colors cursor-pointer" href="pages/architecture.html">ARCHITECTURE</a>
+        <a class="font-['Space_Grotesk'] uppercase tracking-[0.1em] text-[0.875rem] text-[#4B5563] hover:text-[#00FFFF] transition-colors cursor-pointer" href="pages/reference.html">REFERENCE</a>
+    </nav>
+    <div class="flex items-center space-x-6">
+        <span class="material-symbols-outlined text-[#4B5563] hover:text-[#00FFFF] cursor-pointer">search</span>
+        <span class="material-symbols-outlined text-[#4B5563] hover:text-[#00FFFF] cursor-pointer">settings</span>
+    </div>
+</header>
+
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-16 h-[calc(100vh-64px)] w-64 bg-[#050505] flex flex-col border-r border-[#4B5563]/15 overflow-y-auto custom-scrollbar z-40 hidden md:flex">
+    <nav class="flex-1 mt-4">
+        <div class="px-6 py-2 text-[#4B5563] font-['Space_Grotesk'] uppercase tracking-[0.2em] text-[0.6875rem]">SECTOR / 01</div>
+        <a href="index.html" class="block px-6 py-2 text-[#00FFFF] text-[0.875rem] uppercase tracking-[0.1em] bg-[#0A0A0A]">README</a>
+        <a href="pages/install.html" class="block px-6 py-2 text-[#4B5563] hover:text-[#00FFFF] hover:bg-[#0A0A0A] text-[0.875rem] uppercase tracking-[0.1em]">INSTALL</a>
+        <a href="pages/quickstart.html" class="block px-6 py-2 text-[#4B5563] hover:text-[#00FFFF] hover:bg-[#0A0A0A] text-[0.875rem] uppercase tracking-[0.1em]">QUICKSTART</a>
+        <div class="px-6 py-2 mt-6 text-[#4B5563] font-['Space_Grotesk'] uppercase tracking-[0.2em] text-[0.6875rem]">SECTOR / 02</div>
+        <a href="pages/reference.html" class="block px-6 py-2 text-[#4B5563] hover:text-[#00FFFF] hover:bg-[#0A0A0A] text-[0.875rem] uppercase tracking-[0.1em]">REFERENCE</a>
+        <a href="pages/architecture.html" class="block px-6 py-2 text-[#4B5563] hover:text-[#00FFFF] hover:bg-[#0A0A0A] text-[0.875rem] uppercase tracking-[0.1em]">ARCHITECTURE</a>
+    </nav>
+</aside>
+
+<!-- Main Content Canvas -->
+<main class="pt-24 pb-12 px-6 md:ml-64 md:px-12 max-w-7xl">
+    <!-- Hero Header -->
+    <section class="mb-20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end">
+            <div class="lg:col-span-8">
+                <h1 class="text-[3.5rem] font-extrabold uppercase tracking-[-0.05em] text-[#00FFFF] leading-none mb-6">CLINGY.MD</h1>
+            </div>
+        </div>
+    </section>
+
+    <!-- Markdown Content Slot -->
+    <article class="prose prose-invert max-w-none mb-20">
+        <p class="text-[0.875rem] text-[#b9cac9] leading-relaxed mb-6">
+            Clingy is a context-aware command-line framework for building modular interactive tools. It auto-discovers commands, integrates with fzf for menu selection, and ships with zero runtime dependencies beyond a POSIX shell.
+        </p>
+        <p class="text-[0.875rem] text-[#b9cac9] leading-relaxed mb-6">
+            The framework reads its surrounding directory tree on each invocation, discovers executables prefixed with the project sigil, and renders them into a navigable menu. Commands are added by dropping a file in place. No registration step, no configuration file.
+        </p>
+    </article>
+
+    <!-- Content Grid (Bento) -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <!-- Prerequisites Card -->
+        <div class="bg-[#0A0A0A] p-8 col-span-1 border border-[#4B5563]/15 hover:border-[#00FFFF] transition-colors group">
+            <div class="flex items-center justify-between mb-8">
+                <h3 class="text-[#00FFFF] font-['Space_Grotesk'] uppercase tracking-[0.1em] text-[1.125rem]">PREREQUISITES</h3>
+                <span class="material-symbols-outlined text-[#4B5563] group-hover:text-[#00FFFF]">verified</span>
+            </div>
+            <ul class="space-y-6">
+                <li class="flex flex-col">
+                    <span class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest mb-1">RUNTIME</span>
+                    <span class="text-on-surface text-[0.875rem]">BASH 5.0+ / ZSH 5.8+</span>
+                </li>
+                <li class="flex flex-col">
+                    <span class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest mb-1">DEPENDENCY</span>
+                    <span class="text-on-surface text-[0.875rem]">FZF v0.40+</span>
+                </li>
+                <li class="flex flex-col">
+                    <span class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest mb-1">PLATFORM</span>
+                    <span class="text-on-surface text-[0.875rem]">LINUX / MACOS</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Installation Flow Card -->
+        <div class="bg-[#0A0A0A] p-8 col-span-1 md:col-span-2 border border-[#4B5563]/15 relative overflow-hidden">
+            <div class="flex items-center justify-between mb-8">
+                <h3 class="text-[#00FFFF] font-['Space_Grotesk'] uppercase tracking-[0.1em] text-[1.125rem]">INSTALLATION_SEQUENCE</h3>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="space-y-6">
+                    <div class="flex items-start space-x-4">
+                        <span class="text-[#00FFFF] font-mono text-[0.875rem]">01</span>
+                        <div>
+                            <div class="text-on-surface text-[0.875rem] font-bold mb-1">CLONE_REPOSITORY</div>
+                            <code class="bg-[#2A2A2A] text-[#00FFFF] p-2 text-[0.75rem] block mt-2">git clone clingy.git</code>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <span class="text-[#00FFFF] font-mono text-[0.875rem]">02</span>
+                        <div>
+                            <div class="text-on-surface text-[0.875rem] font-bold mb-1">SOURCE_PROFILE</div>
+                            <code class="bg-[#2A2A2A] text-[#00FFFF] p-2 text-[0.75rem] block mt-2">source ./clingy.sh</code>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <div class="flex items-start space-x-4">
+                        <span class="text-[#00FFFF] font-mono text-[0.875rem]">03</span>
+                        <div>
+                            <div class="text-on-surface text-[0.875rem] font-bold mb-1">VERIFY_BOOT</div>
+                            <code class="bg-[#2A2A2A] text-[#00FFFF] p-2 text-[0.75rem] block mt-2">clingy --version</code>
+                        </div>
+                    </div>
+                    <button class="w-full bg-[#00FFFF] text-[#003737] py-3 text-[0.6875rem] font-bold uppercase tracking-[0.2em] transition-opacity hover:opacity-90 mt-4">
+                        DOWNLOAD_PACKAGE.TAR
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Visual Asset Section -->
+        <div class="md:col-span-3 h-64 relative bg-[#0A0A0A] overflow-hidden border border-[#4B5563]/15">
+            <div class="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#1c1b1b] to-[#050505]"></div>
+            <div class="absolute inset-0 flex flex-col justify-center px-12">
+                <div class="text-[#00FFFF] font-['Space_Grotesk'] uppercase tracking-[0.5em] text-[0.6875rem] mb-2">INTERFACE_DOCUMENTATION</div>
+                <div class="text-white text-[1.5rem] font-black uppercase tracking-widest">SYSTEM_OVERVIEW</div>
+            </div>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="md:col-span-3">
+            <div class="text-[#4B5563] font-['Space_Grotesk'] uppercase tracking-[0.2em] text-[0.6875rem] mb-8 flex items-center">
+                <span class="mr-4">QUICK_NAVIGATION</span>
+                <div class="h-[1px] flex-1 bg-[#4B5563]/20"></div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <a class="group border border-[#4B5563]/15 p-6 hover:bg-[#2A2A2A] hover:border-[#00FFFF] transition-colors" href="pages/architecture.html">
+                    <div class="text-[#00FFFF] mb-4 group-hover:scale-110 transition-transform"><span class="material-symbols-outlined">architecture</span></div>
+                    <div class="text-white font-bold text-[0.875rem] uppercase mb-1">ARCHITECTURE</div>
+                    <div class="text-[#4B5563] text-[0.75rem]">Understand the core topology of the system.</div>
+                </a>
+                <a class="group border border-[#4B5563]/15 p-6 hover:bg-[#2A2A2A] hover:border-[#00FFFF] transition-colors" href="pages/reference.html">
+                    <div class="text-[#00FFFF] mb-4 group-hover:scale-110 transition-transform"><span class="material-symbols-outlined">settings_ethernet</span></div>
+                    <div class="text-white font-bold text-[0.875rem] uppercase mb-1">CLI_REFERENCE</div>
+                    <div class="text-[#4B5563] text-[0.75rem]">Comprehensive command and flag documentation.</div>
+                </a>
+                <a class="group border border-[#4B5563]/15 p-6 hover:bg-[#2A2A2A] hover:border-[#00FFFF] transition-colors" href="pages/quickstart.html">
+                    <div class="text-[#00FFFF] mb-4 group-hover:scale-110 transition-transform"><span class="material-symbols-outlined">terminal</span></div>
+                    <div class="text-white font-bold text-[0.875rem] uppercase mb-1">QUICKSTART</div>
+                    <div class="text-[#4B5563] text-[0.75rem]">Wire your first command in under five minutes.</div>
+                </a>
+                <a class="group border border-[#4B5563]/15 p-6 hover:bg-[#2A2A2A] hover:border-[#00FFFF] transition-colors" href="pages/install.html">
+                    <div class="text-[#00FFFF] mb-4 group-hover:scale-110 transition-transform"><span class="material-symbols-outlined">security</span></div>
+                    <div class="text-white font-bold text-[0.875rem] uppercase mb-1">INSTALL</div>
+                    <div class="text-[#4B5563] text-[0.75rem]">Platform-specific installation guides.</div>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-24 pt-8 border-t border-[#4B5563]/15">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center">
+            <div class="text-[#4B5563] text-[0.6875rem] uppercase tracking-widest font-mono">END_OF_DOCUMENT</div>
+            <div class="flex space-x-8 mt-4 md:mt-0">
+                <span class="text-[#00FFFF] text-[0.6875rem] uppercase tracking-[0.2em] cursor-pointer hover:underline">REPORT_ISSUE</span>
+                <span class="text-[#00FFFF] text-[0.6875rem] uppercase tracking-[0.2em] cursor-pointer hover:underline">CONTRIBUTE</span>
+            </div>
+        </div>
+    </footer>
+</main>
+
+</body>
+</html>

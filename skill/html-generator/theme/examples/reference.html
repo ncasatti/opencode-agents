@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CLINGY | TECHNICAL REFERENCE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                colors: {
+                    "surface-container-highest": "#353534",
+                    "surface-container-high": "#2a2a2a",
+                    "surface-container-low": "#1c1b1b",
+                    "primary-container": "#00fbfb",
+                    "on-primary-container": "#007070",
+                    "on-background": "#e5e2e1",
+                    "on-surface-variant": "#b9cac9"
+                },
+                fontFamily: {
+                    headline: ["Space Grotesk"],
+                    display: ["Space Grotesk"],
+                    body: ["Space Grotesk"],
+                    label: ["Space Grotesk"]
+                }
+            }
+        }
+    }
+</script>
+<style>
+    body { background-color: #050505; font-family: 'Space Grotesk', sans-serif; }
+    .linear-step-interaction { transition: none; }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: #050505; }
+    ::-webkit-scrollbar-thumb { background: #4B5563; }
+    ::-webkit-scrollbar-thumb:hover { background: #00FFFF; }
+</style>
+</head>
+<body class="text-on-background selection:bg-primary-container selection:text-on-primary-container">
+
+<!-- TopNavBar -->
+<header class="flex justify-between items-center w-full px-8 h-16 z-50 bg-[#0A0A0A] border-b border-[#4B5563]/15 fixed top-0">
+    <div class="text-[1.25rem] font-bold text-[#00FFFF] tracking-widest font-['Space_Grotesk'] uppercase">TECHNICAL DOCUMENTATION</div>
+    <nav class="hidden md:flex gap-8 items-center h-full">
+        <a class="font-['Space_Grotesk'] uppercase tracking-[0.1em] text-[0.875rem] text-[#4B5563] hover:text-[#00FFFF] transition-none" href="../index.html">GUIDE</a>
+        <a class="font-['Space_Grotesk'] uppercase tracking-[0.1em] text-[0.875rem] text-[#4B5563] hover:text-[#00FFFF] transition-none" href="architecture.html">ARCHITECTURE</a>
+        <a class="font-['Space_Grotesk'] uppercase tracking-[0.1em] text-[0.875rem] text-[#00FFFF] border-b-2 border-[#00FFFF] pb-1" href="reference.html">REFERENCE</a>
+    </nav>
+    <div class="flex items-center gap-6">
+        <span class="material-symbols-outlined text-[#4B5563] hover:text-[#00FFFF] cursor-pointer transition-none">search</span>
+        <span class="material-symbols-outlined text-[#4B5563] hover:text-[#00FFFF] cursor-pointer transition-none">settings</span>
+    </div>
+</header>
+
+<div class="flex pt-16 min-h-screen">
+    <!-- SideNavBar -->
+    <aside class="fixed left-0 h-[calc(100vh-64px)] w-64 flex flex-col border-r border-[#4B5563]/15 overflow-y-auto bg-[#050505] z-40">
+        <nav class="flex-1 py-4">
+            <div class="px-6 py-2 text-[#4B5563] font-['Space_Grotesk'] uppercase tracking-[0.2em] text-[0.6875rem]">REFERENCE</div>
+            <a href="reference.html#endpoints" class="block px-6 py-2 text-[#00FFFF] text-[0.875rem] uppercase tracking-[0.1em] bg-[#0A0A0A]">ENDPOINTS</a>
+            <a href="reference.html#flags" class="block px-6 py-2 text-[#4B5563] hover:text-[#00FFFF] text-[0.875rem] uppercase tracking-[0.1em]">CLI FLAGS</a>
+            <a href="reference.html#contracts" class="block px-6 py-2 text-[#4B5563] hover:text-[#00FFFF] text-[0.875rem] uppercase tracking-[0.1em]">CONTRACTS</a>
+            <div class="px-6 py-2 mt-6 text-[#4B5563] font-['Space_Grotesk'] uppercase tracking-[0.2em] text-[0.6875rem]">RETURN</div>
+            <a href="../index.html" class="block px-6 py-2 text-[#4B5563] hover:text-[#00FFFF] text-[0.875rem] uppercase tracking-[0.1em]">&larr; ENTRY POINT</a>
+        </nav>
+    </aside>
+
+    <!-- Main Content Canvas -->
+    <main class="ml-64 w-full p-12 bg-[#050505]">
+
+        <!-- Hero Header (Reference: side-bordered) -->
+        <div class="mb-16 border-l-8 border-[#00FFFF] pl-8">
+            <div class="text-[#4B5563] font-['Space_Grotesk'] uppercase tracking-[0.2em] text-[0.75rem] mb-2">DOCUMENTATION / REFERENCE</div>
+            <h1 class="text-[3.5rem] font-black font-['Space_Grotesk'] uppercase tracking-tight text-white leading-tight">CLINGY<span class="text-[#00FFFF]">.MD</span></h1>
+        </div>
+
+        <!-- Markdown Content Slot -->
+        <article class="prose prose-invert max-w-none mb-16">
+            <p class="text-[0.875rem] text-[#b9cac9] leading-relaxed mb-6">
+                Reference documentation for the Clingy command surface. Every endpoint and flag listed below is reachable from a default install. Deprecated entries are marked explicitly; treat anything else as stable contract.
+            </p>
+        </article>
+
+        <!-- Bento Grid of Data -->
+        <div class="grid grid-cols-12 gap-6">
+
+            <!-- API Endpoints Section -->
+            <div class="col-span-12 lg:col-span-8 bg-[#0A0A0A] p-8 border border-[#4B5563]/10">
+                <div class="flex justify-between items-center mb-8">
+                    <h2 class="text-[1.25rem] font-bold uppercase tracking-[0.1em] text-[#00FFFF]">API ENDPOINTS</h2>
+                    <span class="text-[0.6875rem] text-[#4B5563] uppercase tracking-[0.1em]">VERSION 1.2.0</span>
+                </div>
+                <div class="space-y-6">
+                    <!-- Endpoint Item: GET -->
+                    <div class="bg-[#131313] p-6 border border-[#4B5563]/20 hover:border-[#00FFFF]/50 transition-all duration-300">
+                        <div class="flex items-center gap-4 mb-3">
+                            <span class="bg-[#00FFFF] text-[#003737] px-2 py-0.5 text-[0.6875rem] font-bold uppercase">GET</span>
+                            <code class="text-[#00FFFF] font-mono text-sm">/v1/system/heartbeat</code>
+                        </div>
+                        <p class="text-sm text-[#B9CAC9] mb-4">Returns real-time health metrics of the core cluster nodes.</p>
+                        <div class="grid grid-cols-2 gap-4 text-[0.75rem] uppercase tracking-wider">
+                            <div><span class="text-[#4B5563]">Params:</span> <span class="text-white">NODE_ID (UUID)</span></div>
+                            <div><span class="text-[#4B5563]">Response:</span> <span class="text-white">200 OK [JSON]</span></div>
+                        </div>
+                    </div>
+                    <!-- Endpoint Item: POST -->
+                    <div class="bg-[#131313] p-6 border border-[#4B5563]/20 hover:border-[#00FFFF]/50 transition-all duration-300">
+                        <div class="flex items-center gap-4 mb-3">
+                            <span class="bg-[#FFBF00] text-black px-2 py-0.5 text-[0.6875rem] font-bold uppercase">POST</span>
+                            <code class="text-[#00FFFF] font-mono text-sm">/v1/data/inject</code>
+                        </div>
+                        <p class="text-sm text-[#B9CAC9] mb-4">Ingests raw telemetry stream into the persistence layer.</p>
+                        <div class="grid grid-cols-2 gap-4 text-[0.75rem] uppercase tracking-wider">
+                            <div><span class="text-[#4B5563]">Params:</span> <span class="text-white">PAYLOAD (BLOB)</span></div>
+                            <div><span class="text-[#4B5563]">Response:</span> <span class="text-white">202 ACCEPTED</span></div>
+                        </div>
+                    </div>
+                    <!-- Endpoint Item: DELETE -->
+                    <div class="bg-[#131313] p-6 border border-[#4B5563]/20 hover:border-[#00FFFF]/50 transition-all duration-300">
+                        <div class="flex items-center gap-4 mb-3">
+                            <span class="bg-[#FF0000] text-white px-2 py-0.5 text-[0.6875rem] font-bold uppercase">DELETE</span>
+                            <code class="text-[#00FFFF] font-mono text-sm">/v1/cache/flush</code>
+                        </div>
+                        <p class="text-sm text-[#B9CAC9] mb-4">Purges all ephemeral data buffers. Irreversible action.</p>
+                        <div class="grid grid-cols-2 gap-4 text-[0.75rem] uppercase tracking-wider">
+                            <div><span class="text-[#4B5563]">Params:</span> <span class="text-white">FORCE (BOOL)</span></div>
+                            <div><span class="text-[#4B5563]">Response:</span> <span class="text-white">204 NO_CONTENT</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CLI Flags Sidebar -->
+            <div class="col-span-12 lg:col-span-4 bg-[#0A0A0A] p-8 border border-[#4B5563]/10">
+                <h2 class="text-[1.125rem] font-bold uppercase tracking-[0.1em] text-white mb-8">CLI COMMAND FLAGS</h2>
+                <ul class="space-y-8">
+                    <li class="relative pl-6 before:absolute before:left-0 before:top-2 before:w-1.5 before:h-1.5 before:bg-[#00FFFF]">
+                        <div class="text-[#00FFFF] font-mono text-sm mb-1">--verbose, -v</div>
+                        <div class="text-[0.75rem] text-[#4B5563] leading-relaxed">Enables low-level kernel log output for debugging.</div>
+                    </li>
+                    <li class="relative pl-6 before:absolute before:left-0 before:top-2 before:w-1.5 before:h-1.5 before:bg-[#4B5563]">
+                        <div class="text-[#00FFFF] font-mono text-sm mb-1">--target, -t [ADDR]</div>
+                        <div class="text-[0.75rem] text-[#4B5563] leading-relaxed">Defines the remote socket address for the connection.</div>
+                    </li>
+                    <li class="relative pl-6 before:absolute before:left-0 before:top-2 before:w-1.5 before:h-1.5 before:bg-[#FF0000]">
+                        <div class="text-[#00FFFF] font-mono text-sm mb-1">--bypass-sec</div>
+                        <div class="text-[0.75rem] text-[#FFB4AB] leading-relaxed">WARNING: Disables standard security handshake verification.</div>
+                    </li>
+                    <li class="relative pl-6 before:absolute before:left-0 before:top-2 before:w-1.5 before:h-1.5 before:bg-[#4B5563]">
+                        <div class="text-[#00FFFF] font-mono text-sm mb-1">--retry [INT]</div>
+                        <div class="text-[0.75rem] text-[#4B5563] leading-relaxed">Maximum connection attempts before timing out.</div>
+                    </li>
+                </ul>
+                <div class="mt-12 pt-8 border-t border-[#4B5563]/15">
+                    <button class="w-full bg-[#00FFFF] text-[#003737] py-4 font-black uppercase tracking-[0.1em] text-[0.875rem] hover:bg-[#00fbfb] transition-all">
+                        DOWNLOAD SDK CONFIG
+                    </button>
+                </div>
+            </div>
+
+            <!-- System Contracts Section -->
+            <div class="col-span-12 grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+                <div class="bg-[#0A0A0A] p-8 border border-[#4B5563]/10 border-t-2 border-t-[#00FFFF]">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="material-symbols-outlined text-[#00FFFF]">security</span>
+                        <h3 class="font-bold uppercase tracking-wider text-white text-sm">SECURITY CONTRACT</h3>
+                    </div>
+                    <p class="text-[0.875rem] text-[#B9CAC9] leading-relaxed">All incoming streams must be signed with RSA-4096. Non-conforming packets are dropped silently.</p>
+                </div>
+                <div class="bg-[#0A0A0A] p-8 border border-[#4B5563]/10 border-t-2 border-t-[#4B5563]">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="material-symbols-outlined text-[#4B5563]">speed</span>
+                        <h3 class="font-bold uppercase tracking-wider text-white text-sm">PERFORMANCE SLA</h3>
+                    </div>
+                    <p class="text-[0.875rem] text-[#B9CAC9] leading-relaxed">Latency overhead must not exceed 4ms per node hop for standard orchestration traffic.</p>
+                </div>
+                <div class="bg-[#0A0A0A] p-8 border border-[#4B5563]/10 border-t-2 border-t-[#FF0000]">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="material-symbols-outlined text-[#FF0000]">emergency_home</span>
+                        <h3 class="font-bold uppercase tracking-wider text-white text-sm">FAILOVER PROTOCOL</h3>
+                    </div>
+                    <p class="text-[0.875rem] text-[#B9CAC9] leading-relaxed">Automated failover protocols trigger upon 15% packet loss across primary gateways.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Footer Meta -->
+        <footer class="mt-24 pt-8 border-t border-[#4B5563]/15 text-[#4B5563]">
+            <div class="flex flex-wrap justify-between items-center gap-4">
+                <div class="text-[0.75rem] uppercase tracking-widest">LAST UPDATED: 2026-05-01 &bull; VERSION 1.2.0-STABLE</div>
+                <div class="flex gap-6">
+                    <a class="text-[0.75rem] uppercase tracking-widest hover:text-white transition-none" href="#">HELP CENTER</a>
+                    <a class="text-[0.75rem] uppercase tracking-widest hover:text-white transition-none" href="#">SUPPORT</a>
+                    <a class="text-[0.75rem] uppercase tracking-widest hover:text-white transition-none" href="#">LEGAL</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+</div>
+
+</body>
+</html>
