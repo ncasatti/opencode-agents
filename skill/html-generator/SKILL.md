@@ -22,7 +22,7 @@ The theme lives at a fixed absolute path. The agent reads from it; it never copi
 Every project consuming this skill adopts:
 
 ```
-docs/html/
+docs/
   index.html          ← landing page (readme archetype)
   pages/              ← secondary pages
     reference.html    ← reference archetype
@@ -30,7 +30,7 @@ docs/html/
     <other>.html
 ```
 
-Every output is a complete `.html` file. There is no separate Markdown source directory and no build artifact directory — the HTML *is* the source. Commit the whole `docs/html/` tree to the repo.
+Every output is a complete `.html` file. There is no separate Markdown source directory and no build artifact directory — the HTML *is* the source. Commit the whole `docs/` tree to the repo. This layout is compatible with GitHub Pages (`Settings → Pages → Source: /docs`).
 
 ## Quick Start
 
@@ -56,7 +56,7 @@ Resolve all five before writing any file:
 
 ### Phase 2 — Execution
 
-1. Create `docs/html/` and `docs/html/pages/` if missing.
+1. Create `docs/` and `docs/pages/` if missing.
 2. For each requested page:
    - Open the matching `theme/examples/<archetype>.html` as a structural reference.
    - Open `theme/COMPONENTS.md` to copy the exact snippet patterns needed.
@@ -67,11 +67,11 @@ Resolve all five before writing any file:
 
 ### Sample Discovery Dialogue
 
-> **Agent:** I do not find any `.html` files in `docs/html/`. What are we documenting? Give me the subject and a rough list of pages.
+> **Agent:** I do not find any `.html` files in `docs/`. What are we documenting? Give me the subject and a rough list of pages.
 > **User:** My CLI tool `clingy` — landing page and a command reference.
-> **Agent:** Two pages. `docs/html/index.html` as the landing using the `landing` archetype, and `docs/html/pages/reference.html` using the `reference` archetype. Sections I'd include on the landing: prerequisites, install sequence, navigation cards. On the reference: command flags, exit codes, and a contracts strip. Confirm the sections or add what is missing.
+> **Agent:** Two pages. `docs/index.html` as the landing using the `landing` archetype, and `docs/pages/reference.html` using the `reference` archetype. Sections I'd include on the landing: prerequisites, install sequence, navigation cards. On the reference: command flags, exit codes, and a contracts strip. Confirm the sections or add what is missing.
 > **User:** Include installation, quickstart, and all the flags. Go.
-> **Agent:** Writing `docs/html/index.html` with the cyan-headline hero, prerequisites card, three-step install grid, and four navigation tiles — then `docs/html/pages/reference.html` with the side-bordered hero, flag list, and three contract cards. Standalone HTML, no build step.
+> **Agent:** Writing `docs/index.html` with the cyan-headline hero, prerequisites card, three-step install grid, and four navigation tiles — then `docs/pages/reference.html` with the side-bordered hero, flag list, and three contract cards. Standalone HTML, no build step.
 
 ## Archetype Selection Map
 
