@@ -4,6 +4,7 @@
 
 **Version:** 1.4
 **Status:** System Online (Master Control Program Active)
+**Interactive Docs:** [The Grid Agents](https://ncasatti.github.io/opencode-grid-agents/)
 
 ## Overview
 
