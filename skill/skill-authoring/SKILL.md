@@ -1,115 +1,117 @@
 ---
 name: skill-authoring
-description: Guide for creating and maintaining OpenCode/Claude Code skills
-compatibility: Claude Code, OpenCode
-metadata:
-  author: ncasatti
-  version: 1.0.0
-  tags: skills, standards, meta, documentation
+description: Create new agent skills with proper structure, progressive disclosure, and bundled resources. Use when user wants to create, write, or build a new skill.
 ---
 
-# SKILL AUTHORING GUIDE
+# Writing Skills
 
-Standards for creating and maintaining skills.
+## Process
 
-## What is a Skill?
+1. **Gather requirements** - ask user about:
+   - What task/domain does the skill cover?
+   - What specific use cases should it handle?
+   - Does it need executable scripts or just instructions?
+   - Any reference materials to include?
 
-A skill is a **reusable knowledge module** that provides:
-- Domain expertise (e.g., xsi-microservices)
-- Standards and conventions (e.g., conventional-commits)
-- Reference documentation (e.g., manager-core)
+2. **Draft the skill** - create:
+   - SKILL.md with concise instructions
+   - Additional reference files if content exceeds 500 lines
+   - Utility scripts if deterministic operations needed
 
-Skills are **passive** - they don't execute, they inform.
-Agents load skills to gain context for specific tasks.
+3. **Review with user** - present draft and ask:
+   - Does this cover your use cases?
+   - Anything missing or unclear?
+   - Should any section be more/less detailed?
 
-## Frontmatter (Required)
+## Skill Structure
 
-```yaml
+```
+skill-name/
+├── SKILL.md           # Main instructions (required)
+├── REFERENCE.md       # Detailed docs (if needed)
+├── EXAMPLES.md        # Usage examples (if needed)
+└── scripts/           # Utility scripts (if needed)
+    └── helper.js
+```
+
+## SKILL.md Template
+
+```md
 ---
 name: skill-name
-description: Short description (1 line, English)
-compatibility: Claude Code, OpenCode
-metadata:
-  author: username
-  version: x.y.z
-  tags: tag1, tag2, tag3
+description: Brief description of capability. Use when [specific triggers].
 ---
+
+# Skill Name
+
+## Quick start
+
+[Minimal working example]
+
+## Workflows
+
+[Step-by-step processes with checklists for complex tasks]
+
+## Advanced features
+
+[Link to separate files: See [REFERENCE.md](REFERENCE.md)]
 ```
 
-| Field | Required | Description |
-|-------|----------|-------------|
-| `name` | ✅ | Skill identifier (kebab-case) |
-| `description` | ✅ | One-line description |
-| `compatibility` | ✅ | Supported platforms |
-| `metadata.author` | ✅ | Creator username |
-| `metadata.version` | ✅ | Semantic version |
-| `metadata.tags` | ✅ | Searchable keywords |
+## Description Requirements
 
-## Standard Sections
+The description is **the only thing your agent sees** when deciding which skill to load. It's surfaced in the system prompt alongside all other installed skills. Your agent reads these descriptions and picks the relevant skill based on the user's request.
 
-### Required
-1. **Title** - `# SKILL NAME` (matches frontmatter name)
-2. **Overview** - What this skill provides (2-3 sentences)
-3. **When to Use** - Clear scope with ✅/❌ lists
+**Goal**: Give your agent just enough info to know:
 
-### Recommended
-4. **Quick Reference** - Cheatsheet, common commands, tables
-5. **Detailed Content** - The core knowledge
-6. **Best Practices** - DO/DON'T lists
+1. What capability this skill provides
+2. When/why to trigger it (specific keywords, contexts, file types)
 
-### Optional
-7. **Troubleshooting** - Common issues and fixes
-8. **Related Skills** - Links to complementary skills
+**Format**:
 
-## File Structure
+- Max 1024 chars
+- Write in third person
+- First sentence: what it does
+- Second sentence: "Use when [specific triggers]"
 
-### Simple Skill (< 300 lines)
+**Good example**:
+
 ```
-skill/
-└── my-skill/
-    └── SKILL.md
+Extract text and tables from PDF files, fill forms, merge documents. Use when working with PDF files or when user mentions PDFs, forms, or document extraction.
 ```
 
-### Complex Skill (> 300 lines)
+**Bad example**:
+
 ```
-skill/
-└── my-skill/
-    ├── SKILL.md          # Entry point (overview + quick reference)
-    ├── topic-a.md        # Detailed module
-    ├── topic-b.md        # Detailed module
-    └── examples.md       # Code examples (optional)
+Helps with documents.
 ```
 
-## Naming Conventions
+The bad example gives your agent no way to distinguish this from other document skills.
 
-| Element | Convention | Example |
-|---------|------------|---------|
-| Directory | `kebab-case` | `conventional-commits/` |
-| Main file | `SKILL.md` (uppercase) | `SKILL.md` |
-| Modules | `kebab-case.md` | `best-practices.md` |
+## When to Add Scripts
 
-## Content Guidelines
+Add utility scripts when:
 
-### DO ✅
-- Write in English (universal compatibility)
-- Use bullet points and tables over paragraphs
-- Include concrete examples
-- Keep SKILL.md under 500 lines (modularize if larger)
-- Version your skills with semantic versioning
-- Reference other skills instead of duplicating content
+- Operation is deterministic (validation, formatting)
+- Same code would be generated repeatedly
+- Errors need explicit handling
 
-### DON'T ❌
-- Don't include personality or tone (that's the agent's job)
-- Don't hardcode project-specific values
-- Don't write implementation code (reference patterns instead)
-- Don't mix multiple unrelated concerns
+Scripts save tokens and improve reliability vs generated code.
 
-## Skill vs Agent: Key Differences
+## When to Split Files
 
-| Aspect | Skill | Agent |
-|--------|-------|-------|
-| Purpose | Provide knowledge | Execute tasks |
-| Has personality | ❌ No | ✅ Yes |
-| Has model config | ❌ No | ✅ Yes |
-| Loaded by | Agents | User/System |
-| File location | `skill/*/SKILL.md` | `agent/*.md` |
+Split into separate files when:
+
+- SKILL.md exceeds 100 lines
+- Content has distinct domains (finance vs sales schemas)
+- Advanced features are rarely needed
+
+## Review Checklist
+
+After drafting, verify:
+
+- [ ] Description includes triggers ("Use when...")
+- [ ] SKILL.md under 100 lines
+- [ ] No time-sensitive info
+- [ ] Consistent terminology
+- [ ] Concrete examples included
+- [ ] References one level deep
