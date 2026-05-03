@@ -23,7 +23,7 @@ configs:
     group: opencode
   # Claude
   - name: claude
-    source: ../agent/master-control-program.md
+    source: ../agent/clu.md
     target: ~/.claude/CLAUDE.md
     group: claude
   - name: claude-skills
@@ -36,7 +36,7 @@ configs:
     group: claude
   # Antigravity
   - name: antigravity-mcp
-    source: ../agent/master-control-program.md
+    source: ../agent/clu.md
     target: ~/.gemini/GEMINI.md
     group: antigravity
   - name: antigravity-skills
