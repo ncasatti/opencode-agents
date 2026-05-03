@@ -32,6 +32,7 @@ from core.status import (
 from clingy.commands.base import BaseCommand
 from clingy.core.logger import log_error, log_info, log_success, log_warning
 from clingy.core.menu import MenuNode
+from clingy.core.emojis import Emoji
 
 
 class BrowseCommand(BaseCommand):
@@ -112,13 +113,13 @@ class BrowseCommand(BaseCommand):
             )
 
             # Create group node
-            group_label = f"📁 {group.title()}"
+            group_label = f"{Emoji.FILE_LIST} {group.title()}"
             if group_desc:
                 group_label += f" - {group_desc}"
 
             group_nodes.append(MenuNode(label=group_label, children=config_nodes))
 
-        return MenuNode(label="Browse Configurations", emoji="🔍", children=group_nodes)
+        return MenuNode(label="Browse Configurations", emoji=Emoji.SEARCH, children=group_nodes)
 
     def _show_config_info(self, config, konfig_root: Path) -> bool:
         """Show detailed info about a configuration"""
